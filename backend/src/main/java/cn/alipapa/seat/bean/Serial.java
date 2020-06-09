@@ -1,13 +1,9 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
 public class Serial {
 
-    // 所有属性均为private
-
     private String serial;
     private String password;
-
-    // 每个属性均有对应的getter/setter
 
     public String getSerial() {
         return serial;
@@ -25,8 +21,11 @@ public class Serial {
         this.password = password;
     }
 
-    public Serial(String serial, String password) {
-        this.serial = serial;
-        this.password = password;
+    @Override
+    public String toString() {
+        return "Serial{" +
+                "serial='" + serial + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
