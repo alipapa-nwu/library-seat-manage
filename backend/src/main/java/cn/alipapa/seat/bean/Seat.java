@@ -19,4 +19,12 @@ public class Seat {
     public void setPosition(int position) {
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "table_id=" + table_id +
+                ", position=" + position +
+                '}';
+    }
 }

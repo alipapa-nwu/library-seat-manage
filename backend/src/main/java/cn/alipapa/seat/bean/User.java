@@ -66,4 +66,17 @@ public class User {
     public void setSession_expire(Date session_expire) {
         this.session_expire = session_expire;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "serial='" + serial + '\'' +
+                ", name='" + name + '\'' +
+                ", openid='" + openid + '\'' +
+                ", session_id='" + session_id + '\'' +
+                ", session_key='" + session_key + '\'' +
+                ", punish_until=" + punish_until +
+                ", session_expire=" + session_expire +
+                '}';
+    }
 }

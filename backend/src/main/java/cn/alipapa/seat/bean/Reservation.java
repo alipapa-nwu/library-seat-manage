@@ -66,4 +66,17 @@ public class Reservation {
     public void setReservation_date(Date reservation_date) {
         this.reservation_date = reservation_date;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "user_id=" + user_id +
+                ", seat_id=" + seat_id +
+                ", start=" + start +
+                ", end=" + end +
+                ", enter_time=" + enter_time +
+                ", leave_time=" + leave_time +
+                ", reservation_date=" + reservation_date +
+                '}';
+    }
 }

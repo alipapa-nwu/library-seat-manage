@@ -20,4 +20,12 @@ public class Serial {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Serial{" +
+                "serial='" + serial + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

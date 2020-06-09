@@ -28,4 +28,13 @@ public class Table {
     public void setRow(Integer row) {
         this.row = row;
     }
+
+    @Override
+    public String toString() {
+        return "Table{" +
+                "level=" + level +
+                ", column=" + column +
+                ", row=" + row +
+                '}';
+    }
 }
