@@ -20,9 +20,4 @@ public class Serial {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Serial(String serial, String password) {
-        this.serial = serial;
-        this.password = password;
-    }
 }
