@@ -3,27 +3,27 @@ package cn.alipapa.seat.bean;
 import java.util.Date;
 
 public class Reservation {
-    private int user_id;
-    private int seat_id;
+    private Integer user_id;
+    private Integer seat_id;
     private Date start;
     private Date end;
     private Date enter_time;
     private Date leave_time;
     private Date reservation_date;
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
-    public int getSeat_id() {
+    public Integer getSeat_id() {
         return seat_id;
     }
 
-    public void setSeat_id(int seat_id) {
+    public void setSeat_id(Integer seat_id) {
         this.seat_id = seat_id;
     }
 

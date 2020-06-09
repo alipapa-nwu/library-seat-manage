@@ -1,31 +1,31 @@
 package cn.alipapa.seat.bean;
 
 public class Table {
-    private int level;
-    private int column;
-    private int row;
+    private Integer level;
+    private Integer column;
+    private Integer row;
 
-    public int getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
-    public int getColumn() {
+    public Integer getColumn() {
         return column;
     }
 
-    public void setColumn(int column) {
+    public void setColumn(Integer column) {
         this.column = column;
     }
 
-    public int getRow() {
+    public Integer getRow() {
         return row;
     }
 
-    public void setRow(int row) {
+    public void setRow(Integer row) {
         this.row = row;
     }
 }

@@ -2,12 +2,8 @@ package cn.alipapa.seat.bean;
 
 public class Serial {
 
-    // 所有属性均为private
-
     private String serial;
     private String password;
-
-    // 每个属性均有对应的getter/setter
 
     public String getSerial() {
         return serial;
