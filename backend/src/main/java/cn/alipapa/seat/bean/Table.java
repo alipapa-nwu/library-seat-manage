@@ -1,6 +1,6 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
-public class Tables{
+public class Table {
     private int level;
     private int column;
     private int row;

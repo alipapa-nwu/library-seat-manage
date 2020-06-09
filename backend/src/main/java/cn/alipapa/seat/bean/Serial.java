@@ -1,4 +1,4 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
 public class Serial {
 

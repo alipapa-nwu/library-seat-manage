@@ -1,6 +1,6 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
-public class Seats {
+public class Seat {
     private int table_id;
     private int position;
 

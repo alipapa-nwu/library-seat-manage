@@ -1,15 +1,15 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
 import java.util.Date;
 
-public class Reservations {
+public class Reservation {
     private int user_id;
     private int seat_id;
     private Date start;
     private Date end;
     private Date enter_time;
     private Date leave_time;
-    private Date reservation_data;
+    private Date reservation_date;
 
     public int getUser_id() {
         return user_id;
@@ -59,11 +59,11 @@ public class Reservations {
         this.leave_time = leave_time;
     }
 
-    public Date getReservation_data() {
-        return reservation_data;
+    public Date getReservation_date() {
+        return reservation_date;
     }
 
-    public void setReservation_data(Date reservation_data) {
-        this.reservation_data = reservation_data;
+    public void setReservation_date(Date reservation_date) {
+        this.reservation_date = reservation_date;
     }
 }

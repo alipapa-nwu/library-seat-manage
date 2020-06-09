@@ -1,8 +1,8 @@
-package cn.alipapa.seat.dao;
+package cn.alipapa.seat.bean;
 
 import java.util.Date;
 
-public class Users {
+public class User {
     private String serial;
     private String name;
     private String openid;
