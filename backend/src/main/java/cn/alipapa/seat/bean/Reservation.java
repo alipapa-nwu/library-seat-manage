@@ -3,6 +3,7 @@ package cn.alipapa.seat.bean;
 import java.util.Date;
 
 public class Reservation {
+    private Integer id;
     private Integer user_id;
     private Integer seat_id;
     private Date start;
@@ -10,6 +11,14 @@ public class Reservation {
     private Date enter_time;
     private Date leave_time;
     private Date reservation_date;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getUser_id() {
         return user_id;

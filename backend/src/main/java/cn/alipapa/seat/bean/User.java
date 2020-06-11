@@ -3,13 +3,22 @@ package cn.alipapa.seat.bean;
 import java.util.Date;
 
 public class User {
+    private Integer id;
     private String serial;
     private String name;
     private String openid;
     private String session_id;
     private String session_key;
-    private Date punish_until;
+    private Date punish_date;
     private Date session_expire;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getSerial() {
         return serial;
@@ -51,12 +60,12 @@ public class User {
         this.session_key = session_key;
     }
 
-    public Date getPunish_until() {
-        return punish_until;
+    public Date getPunish_date() {
+        return punish_date;
     }
 
-    public void setPunish_until(Date punish_until) {
-        this.punish_until = punish_until;
+    public void setPunish_date(Date punish_date) {
+        this.punish_date = punish_date;
     }
 
     public Date getSession_expire() {
@@ -75,7 +84,7 @@ public class User {
                 ", openid='" + openid + '\'' +
                 ", session_id='" + session_id + '\'' +
                 ", session_key='" + session_key + '\'' +
-                ", punish_until=" + punish_until +
+                ", punish_until=" + punish_date +
                 ", session_expire=" + session_expire +
                 '}';
     }

@@ -1,9 +1,17 @@
 package cn.alipapa.seat.bean;
 
 public class Serial {
-
+    private Integer id;
     private String serial;
     private String password;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getSerial() {
         return serial;

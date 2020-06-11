@@ -1,8 +1,17 @@
 package cn.alipapa.seat.bean;
 
 public class Seat {
+    private Integer id;
     private Integer table_id;
     private int position;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getTable_id() {
         return table_id;

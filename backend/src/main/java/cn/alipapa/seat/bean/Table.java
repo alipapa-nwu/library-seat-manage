@@ -1,9 +1,18 @@
 package cn.alipapa.seat.bean;
 
 public class Table {
+    private Integer id;
     private Integer level;
     private Integer column;
     private Integer row;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getLevel() {
         return level;
