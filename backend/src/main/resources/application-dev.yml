@@ -12,8 +12,7 @@ spring:
 
 mybatis:
   type-aliases-package: cn.alipapa.seat.bean
-  mapper-locations:
-    - classpath:mapper/*Dao.xml
+  mapper-locations: classpath:mapper/*.xml
 
 logging:
   level:
