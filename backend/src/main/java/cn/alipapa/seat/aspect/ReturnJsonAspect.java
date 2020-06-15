@@ -10,18 +10,19 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class ReturnJsonAspect {
-    @Pointcut("execution(public Object cn.alipapa.seat.controller..*(*))")
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)||" +
+            "@annotation(org.springframework.web.bind.annotation.PostMapping)")
     public void pointcut() {
     }
 
     @Around("pointcut()")
-    public Object aroundBeanToString(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundGetAndPostMapping(ProceedingJoinPoint joinPoint) throws Throwable {
         // 正常执行方法，获取返回值
         var args = joinPoint.getArgs();
         var result = joinPoint.proceed(args);
         // 如果res为空，抛异常
         if (result == null)
-            throw new NullPointerException("null return value of controller " + joinPoint.getThis().getClass().getName());
+            throw new NullPointerException("null return value of route " + joinPoint.getSignature());
         // 创建一个返回结构
         var returnJson = new HttpResponseBody();
         // 状态码200
