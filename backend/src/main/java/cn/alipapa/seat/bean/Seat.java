@@ -3,7 +3,7 @@ package cn.alipapa.seat.bean;
 public class Seat {
     private Integer id;
     private Integer table_id;
-    private int position;
+    private Integer position;
 
     public Integer getId() {
         return id;
@@ -21,11 +21,11 @@ public class Seat {
         this.table_id = table_id;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Integer position) {
         this.position = position;
     }
 
