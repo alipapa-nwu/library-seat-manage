@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -17,11 +16,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public HttpResponseBody exceptionHandler(HttpServletRequest req, Exception e) {
-        logger.error("未知异常：" + e.getMessage());
-        logger.trace(Arrays.toString(e.getStackTrace()));
+        logger.error("Exception caught:", e);
         var res = new HttpResponseBody();
         res.setStatus(500);
-        res.setError(e.getMessage());
+        res.setError("服务器未知异常，请稍后再试");
         return res;
     }
 }
