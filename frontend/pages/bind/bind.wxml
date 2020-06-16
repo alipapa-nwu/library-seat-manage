@@ -1,0 +1,13 @@
+<!--pages/bind/bind.wxml-->
+
+<image src="/assets/binding_avatar_placeholder.png" mode="aspectFit" class="avatar"></image>
+
+<view class="form">
+  <view class="divider"></view>
+  <text-field label="学号" placeholder="请输入学号" data-field="serial" bind:change="onChange"></text-field>
+  <view class="divider"></view>
+  <text-field label="身份证后六位" placeholder="请输入身份证号的后六位" data-field="password" bind:change="onChange"></text-field>
+  <view class="divider"></view>
+</view>
+
+<button type="primary" bind:tap="onSubmmit">绑定</button>
