@@ -1,2 +1,2 @@
 <!--index.wxml-->
-<text>index</text>
+<level-button wx:for="{{levelData}}" wx:key="level" level="{{item.level}}" remain="{{item.remain}}"></level-button>
