@@ -1,2 +1,6 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view>
+	<status-button status='已完成' color='green' image='/assets/reservation_success.png' date="{{mineDate[0]}}"></status-button>
+	<status-button status='未完成' color='blue' image='/assets/reservation_pending.png' date="{{mineDate[0]}}"></status-button>
+	<status-button status='待完成' color='red' image='/assets/reservation_fail.png' date="{{mineDate[0]}}"></status-button>
+</view>

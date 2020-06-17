@@ -1,0 +1,6 @@
+<!-- 组件模板 -->
+<view class="status-button {{color}}">
+	<text class="title">{{status}}</text>
+	<image src="{{image}}" class="status-image"></image>
+	<text class="subtitle">{{date}}</text>
+</view>
