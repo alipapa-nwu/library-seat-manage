@@ -1,6 +1,10 @@
 <!-- 组件模板 -->
 <view class="status-button {{color}}">
-	<text class="title">{{status}}</text>
-	<image src="{{image}}" class="status-image"></image>
-	<text class="subtitle">{{date}}</text>
+	<view class="text">
+		<text class="title">{{title}}</text>
+		<view class="spacer"></view>
+		<text class="subtitle">{{subtitle}}</text>
+	</view>
+	<view class="spacer"></view>
+	<image src="{{imgPath}}" mode="aspectFit" class="icon"></image>
 </view>
