@@ -1,2 +1,4 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view>
+	<status-button wx:for="{{reservations}}" wx:key="index" status="{{item.status}}" description="{{item.description}}"/>
+</view>
