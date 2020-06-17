@@ -1,0 +1,5 @@
+<!--components/text-field/text-field.wxml-->
+<view class="text-field">
+  <text class="label block non-shrink">{{label}}</text>
+  <input class="block grow" placeholder="{{placeholder}}" bind:input="onInput"></input>
+</view>

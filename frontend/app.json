@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/level/level",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/bind/bind"
   ],
   "window": {
     "backgroundTextStyle": "light",

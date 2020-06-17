@@ -11,11 +11,12 @@
 }
 
 .title{
-  font-size: 36rpx;
+  font-size: 40rpx;
+  font-weight: bold;
 }
 
 .subtitle{
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 .green{

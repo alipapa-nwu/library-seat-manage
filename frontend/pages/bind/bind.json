@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "text-field": "../../components/text-field/text-field"
+  },
+  "navigationBarTitleText": "绑定学号",
+  "disableScroll": true
+}
