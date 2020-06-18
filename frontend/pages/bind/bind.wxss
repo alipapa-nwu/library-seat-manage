@@ -1,0 +1,11 @@
+/* pages/bind/bind.wxss */
+.avatar{
+  display: block;
+  width: 214rpx;
+  height: 214rpx;
+  margin: 130rpx auto 80rpx auto;
+}
+
+.form{
+  margin-bottom: 100rpx;
+}

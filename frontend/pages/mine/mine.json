@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "status-button":"../../components/status-button/status-button"
+  },
+  "navigationBarTitleText": "我的预约"
+}

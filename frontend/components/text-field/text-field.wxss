@@ -1,0 +1,21 @@
+/* components/text-field/text-field.wxss */
+.text-field{
+  display: flex;
+  padding: 20rpx 30rpx;
+}
+
+.label{
+  flex-basis: 230rpx;
+}
+
+.non-shrink{
+  flex-shrink: 0;
+}
+
+.grow{
+  flex-grow: 1;
+}
+
+.block{
+  display: block;
+}

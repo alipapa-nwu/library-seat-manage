@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "level-button": "../../components/level-button/level-button"
+  }
+}
