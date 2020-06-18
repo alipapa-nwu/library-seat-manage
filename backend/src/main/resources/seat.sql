@@ -48,7 +48,7 @@ VALUES (1, 1, 6, '08:00:00', '22:00:00', '2020-06-15');
 
 
 -- ----------------------------
--- Table structure for realtime
+-- Table structure for record
 -- ----------------------------
 DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record`
@@ -67,10 +67,11 @@ CREATE TABLE `record`
   ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of realtime
+-- Records of record
 -- ----------------------------
-INSERT INTO `realtime`
-VALUES (1, '08:26:23', NULL);
+INSERT INTO `record`
+VALUES (1,1, '08:26:23', NULL,'2020-06-15');
+
 
 
 -- ----------------------------
