@@ -28,8 +28,6 @@ CREATE TABLE `reservation`
     `seat_id`          int(11) NOT NULL,
     `start`            time(0) NOT NULL,
     `end`              time(0) NOT NULL,
-    `enter_time`       time(0) NULL DEFAULT NULL,
-    `leave_time`       time(0) NULL DEFAULT NULL,
     `reservation_date` date    NOT NULL,
     PRIMARY KEY (`id`) USING BTREE,
     INDEX `user_id` (`user_id`) USING BTREE,
@@ -46,7 +44,35 @@ CREATE TABLE `reservation`
 -- Records of reservation
 -- ----------------------------
 INSERT INTO `reservation`
-VALUES (1, 1, 6, '08:00:00', '22:00:00', '08:26:23', NULL, '2020-06-15');
+VALUES (1, 1, 6, '08:00:00', '22:00:00', '2020-06-15');
+
+
+-- ----------------------------
+-- Table structure for record
+-- ----------------------------
+DROP TABLE IF EXISTS `record`;
+CREATE TABLE `record`
+(
+    `id`               int(11) NOT NULL AUTO_INCREMENT,
+    `user_id`          int(11) NOT NULL,
+    `enter_time`       time(0) NOT NULL,
+    `leave_time`       time(0) NULL DEFAULT NULL,
+    `record_date` date    NOT NULL,
+    PRIMARY KEY (`id`) USING BTREE,
+     CONSTRAINT `record_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 2
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_general_ci
+  ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of record
+-- ----------------------------
+INSERT INTO `record`
+VALUES (1,1, '08:26:23', NULL,'2020-06-15');
+
+
 
 -- ----------------------------
 -- Table structure for seat
