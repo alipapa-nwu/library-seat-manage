@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/level/level",
     "pages/mine/mine",
-    "pages/bind/bind"
+    "pages/bind/bind",
+    "pages/reservation/reservation"
   ],
   "window": {
     "backgroundTextStyle": "light",
