@@ -1,0 +1,20 @@
+/* pages/request/request.wxss */
+.header{
+  margin: 50rpx 0 0 30rpx;
+}
+
+.title{
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.subtitle{
+  display: block;
+  font-size: 28rpx;
+  margin: 20rpx 0;
+}
+
+.submit{
+  margin-top: 100rpx;
+}

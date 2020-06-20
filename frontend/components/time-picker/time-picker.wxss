@@ -1,0 +1,24 @@
+/* components/time-picker/time-picker.wxss */
+.time-picker{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.block{
+  display: block;
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+.subtitle{
+  color: #888888;
+  margin-right: 25rpx;
+}
+
+.indicator{
+  width: 16rpx;
+  height: 26rpx;
+}
