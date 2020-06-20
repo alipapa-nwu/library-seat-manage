@@ -5,6 +5,7 @@
   padding: 25rpx 32rpx 25rpx 32rpx;
   margin: 0 30rpx 30rpx 30rpx;
   display: flex;
+
 }
 
 .spacer{
