@@ -20,7 +20,6 @@ Page({
     ]
   },
   onTap(e){
-    console.log(e);
     const {description,status} = e.target.dataset;
     if(status == "pending"){
       wx.navigateTo({
