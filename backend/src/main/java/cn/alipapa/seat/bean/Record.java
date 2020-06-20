@@ -1,4 +1,4 @@
-package cn.alipapa.seat.bean.sql;
+package cn.alipapa.seat.bean;
 import java.util.Date;
 
 public class Record {
