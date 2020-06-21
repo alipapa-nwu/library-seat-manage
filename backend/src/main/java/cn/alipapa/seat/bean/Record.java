@@ -1,12 +1,13 @@
 package cn.alipapa.seat.bean;
 
-import java.util.Calendar;
+
+import java.util.Date;
 
 public class Record {
-    private Calendar enter_time;
-    private Calendar leave_time;
+    private Date enter_time;
+    private Date leave_time;
     private Integer id;
-    private Calendar record_date;
+    private Date record_date;
     private String user_id;
 
     @Override
@@ -20,19 +21,19 @@ public class Record {
                 '}';
     }
 
-    public Calendar getEnter_time() {
+    public Date getEnter_time() {
         return enter_time;
     }
 
-    public void setEnter_time(Calendar enter_time) {
+    public void setEnter_time(Date enter_time) {
         this.enter_time = enter_time;
     }
 
-    public Calendar getLeave_time() {
+    public Date getLeave_time() {
         return leave_time;
     }
 
-    public void setLeave_time(Calendar leave_time) {
+    public void setLeave_time(Date leave_time) {
         this.leave_time = leave_time;
     }
 
@@ -44,11 +45,11 @@ public class Record {
         this.id = id;
     }
 
-    public Calendar getRecord_date() {
+    public Date getRecord_date() {
         return record_date;
     }
 
-    public void setRecord_date(Calendar record_date) {
+    public void setRecord_date(Date record_date) {
         this.record_date = record_date;
     }
 

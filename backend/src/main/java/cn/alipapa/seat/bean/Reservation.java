@@ -1,14 +1,15 @@
 package cn.alipapa.seat.bean;
 
-import java.util.Calendar;
+
+import java.util.Date;
 
 public class Reservation {
     private Integer id;
     private Integer user_id;
     private Integer seat_id;
-    private Calendar start;
-    private Calendar end;
-    private Calendar reservation_date;
+    private Date start;
+    private Date end;
+    private Date reservation_date;
 
     @Override
     public String toString() {
@@ -46,27 +47,27 @@ public class Reservation {
         this.seat_id = seat_id;
     }
 
-    public Calendar getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(Calendar start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public Calendar getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(Calendar end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 
-    public Calendar getReservation_date() {
+    public Date getReservation_date() {
         return reservation_date;
     }
 
-    public void setReservation_date(Calendar reservation_date) {
+    public void setReservation_date(Date reservation_date) {
         this.reservation_date = reservation_date;
     }
 }

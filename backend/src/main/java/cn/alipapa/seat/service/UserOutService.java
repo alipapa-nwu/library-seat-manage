@@ -17,8 +17,8 @@ public class UserOutService {
 
 
     public void userOutRecord(@RequestBody UserOutPOJO userOutPOJO) throws ParseException {
-        Date recordDate= new Date(userOutPOJO.getRecord_date().getTime().getTime());
-        Time leaveTime= new Time(userOutPOJO.getLeave_time().getTime().getTime());
+        Date recordDate= new Date(userOutPOJO.getRecord_date().getTime());
+        Time leaveTime= new Time(userOutPOJO.getLeave_time().getTime());
         userOutDao.postLeaveTime(recordDate,leaveTime, userOutPOJO.getUser_id());
     }
 }
