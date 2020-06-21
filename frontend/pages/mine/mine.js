@@ -4,18 +4,29 @@ Page({
     reservations: [
       {
         status: "success",
-        description: "2020.06.05 08:00-10:00"
+        description: "第三层 A13-4 6月5日 08:00-10:00",
+        id: 123456
       },
       {
         status: "pending",
-        description: "2020.06.05 08:00-10:00"
+        description: "第三层 A13-4 6月5日 08:00-10:00",
+        id: 123456
       },
       {
         status: "fail",
-        description: "2020.06.05 08:00-10:00"
+        description: "第三层 A13-4 6月5日 08:00-10:00",
+        id: 123456
       },
     ],
     name : "岚荨",
     stu_num : "201811XXXX"
+  },
+  onTap(e){
+    const {description,status} = e.target.dataset;
+    if(status == "pending"){
+      wx.navigateTo({
+        url: `/pages/reservation/reservation?description=${description}`,
+      })
+    }
   }
 })

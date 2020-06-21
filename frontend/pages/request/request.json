@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "time-picker": "/components/time-picker/time-picker"
+  },
+  "navigationBarTitleText": "发起预约",
+  "disableScroll": true
+}

@@ -1,0 +1,11 @@
+<!--pages/reservation/reservation.wxml-->
+<view class="container">
+  <view class="card">
+    <text class="absolute title">预约凭证</text>
+    <text class="subtitle">{{description}}</text>
+    <view class="absolute hint">
+      <text class="hint-text">已预约</text>
+      <image class="hint-img" src="/assets/yes.png"></image>
+    </view>
+  </view>
+</view>
