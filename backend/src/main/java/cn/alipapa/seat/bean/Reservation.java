@@ -8,8 +8,6 @@ public class Reservation {
     private Integer seat_id;
     private Date start;
     private Date end;
-    private Date enter_time;
-    private Date leave_time;
     private Date reservation_date;
 
     public Integer getId() {
@@ -52,22 +50,6 @@ public class Reservation {
         this.end = end;
     }
 
-    public Date getEnter_time() {
-        return enter_time;
-    }
-
-    public void setEnter_time(Date enter_time) {
-        this.enter_time = enter_time;
-    }
-
-    public Date getLeave_time() {
-        return leave_time;
-    }
-
-    public void setLeave_time(Date leave_time) {
-        this.leave_time = leave_time;
-    }
-
     public Date getReservation_date() {
         return reservation_date;
     }
@@ -83,8 +65,6 @@ public class Reservation {
                 ", seat_id=" + seat_id +
                 ", start=" + start +
                 ", end=" + end +
-                ", enter_time=" + enter_time +
-                ", leave_time=" + leave_time +
                 ", reservation_date=" + reservation_date +
                 '}';
     }
