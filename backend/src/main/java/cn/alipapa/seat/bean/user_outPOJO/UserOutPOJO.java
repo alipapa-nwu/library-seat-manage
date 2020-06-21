@@ -1,38 +1,33 @@
 package cn.alipapa.seat.bean.user_outPOJO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class UserOutPOJO {
-    private String enter_time;
-    private String leave_time;
+    @JsonFormat(pattern = "HH:mm")
+    private Calendar leave_time;
     private Integer id;
-    private String record_date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Calendar record_date;
     private Integer user_id;
 
     @Override
     public String toString() {
         return "UserOutPOJO{" +
-                "enter_time='" + enter_time + '\'' +
-                ", leave_time='" + leave_time + '\'' +
+                "leave_time=" + leave_time +
                 ", id=" + id +
-                ", record_date='" + record_date + '\'' +
-                ", user_id='" + user_id + '\'' +
+                ", record_date=" + record_date +
+                ", user_id=" + user_id +
                 '}';
     }
 
-    public String getEnter_time() {
-        return enter_time;
-    }
-
-    public void setEnter_time(String enter_time) {
-        this.enter_time = enter_time;
-    }
-
-    public String getLeave_time() {
+    public Calendar getLeave_time() {
         return leave_time;
     }
 
-    public void setLeave_time(String leave_time) {
+    public void setLeave_time(Calendar leave_time) {
         this.leave_time = leave_time;
     }
 
@@ -44,11 +39,11 @@ public class UserOutPOJO {
         this.id = id;
     }
 
-    public String getRecord_date() {
+    public Calendar getRecord_date() {
         return record_date;
     }
 
-    public void setRecord_date(String record_date) {
+    public void setRecord_date(Calendar record_date) {
         this.record_date = record_date;
     }
 

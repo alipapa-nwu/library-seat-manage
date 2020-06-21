@@ -1,14 +1,26 @@
 package cn.alipapa.seat.bean;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Reservation {
     private Integer id;
     private Integer user_id;
     private Integer seat_id;
-    private Date start;
-    private Date end;
-    private Date reservation_date;
+    private Calendar start;
+    private Calendar end;
+    private Calendar reservation_date;
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", seat_id=" + seat_id +
+                ", start=" + start +
+                ", end=" + end +
+                ", reservation_date=" + reservation_date +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -34,40 +46,27 @@ public class Reservation {
         this.seat_id = seat_id;
     }
 
-    public Date getStart() {
+    public Calendar getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(Calendar start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public Calendar getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(Calendar end) {
         this.end = end;
     }
 
-    public Date getReservation_date() {
+    public Calendar getReservation_date() {
         return reservation_date;
     }
 
-    public void setReservation_date(Date reservation_date) {
+    public void setReservation_date(Calendar reservation_date) {
         this.reservation_date = reservation_date;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", user_id=" + user_id +
-                ", seat_id=" + seat_id +
-                ", start=" + start +
-                ", end=" + end +
-                ", reservation_date=" + reservation_date +
-                '}';
     }
 }
