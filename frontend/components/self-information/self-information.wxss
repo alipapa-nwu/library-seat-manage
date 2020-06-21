@@ -23,7 +23,7 @@
   display: block;
 }
 
-.stu-num{
+.serial{
   font-size: 26rpx;
   margin: 13rpx 0 0 26rpx;
   color: #9b9b9b;
