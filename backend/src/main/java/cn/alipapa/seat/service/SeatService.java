@@ -1,6 +1,6 @@
 package cn.alipapa.seat.service;
 
-import cn.alipapa.seat.bean.sql.LevelCount;
+import cn.alipapa.seat.bean.response.LevelCount;
 import cn.alipapa.seat.dao.SeatDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

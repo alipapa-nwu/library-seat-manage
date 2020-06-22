@@ -53,13 +53,13 @@ VALUES (1, 1, 6, '08:00:00', '22:00:00', '2020-06-15');
 DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record`
 (
-    `id`               int(11) NOT NULL AUTO_INCREMENT,
-    `user_id`          int(11) NOT NULL,
-    `enter_time`       time(0) NOT NULL,
-    `leave_time`       time(0) NULL DEFAULT NULL,
+    `id`          int(11) NOT NULL AUTO_INCREMENT,
+    `user_id`     int(11) NOT NULL,
+    `enter_time`  time(0) NOT NULL,
+    `leave_time`  time(0) NULL DEFAULT NULL,
     `record_date` date    NOT NULL,
     PRIMARY KEY (`id`) USING BTREE,
-     CONSTRAINT `record_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+    CONSTRAINT `record_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 2
   CHARACTER SET = utf8mb4

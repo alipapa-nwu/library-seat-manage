@@ -1,4 +1,5 @@
-package cn.alipapa.seat.bean;
+package cn.alipapa.seat.bean.entity;
+
 
 import java.util.Date;
 
@@ -9,6 +10,18 @@ public class Reservation {
     private Date start;
     private Date end;
     private Date reservation_date;
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", seat_id=" + seat_id +
+                ", start=" + start +
+                ", end=" + end +
+                ", reservation_date=" + reservation_date +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -56,18 +69,5 @@ public class Reservation {
 
     public void setReservation_date(Date reservation_date) {
         this.reservation_date = reservation_date;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", user_id=" + user_id +
-                ", seat_id=" + seat_id +
-                ", start=" + start +
-                ", end=" + end +
-                ", reservation_date=" + reservation_date +
-                '}';
     }
 }

@@ -1,4 +1,4 @@
-package cn.alipapa.seat.bean.sql;
+package cn.alipapa.seat.bean.response;
 
 public class LevelCount {
     private Integer level;
