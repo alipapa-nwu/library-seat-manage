@@ -1,6 +1,6 @@
 package cn.alipapa.seat.dao;
 
-import cn.alipapa.seat.bean.sql.LevelCount;
+import cn.alipapa.seat.bean.response.LevelCount;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

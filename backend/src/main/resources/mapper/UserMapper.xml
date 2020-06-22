@@ -2,9 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.alipapa.seat.dao.UserOutDao">
+<mapper namespace="cn.alipapa.seat.dao.UserDao">
     <update id="postLeaveTime">
-    update record set leave_time=#{leaveTime,javaType=java.sql.Time, jdbcType=TIME}
-    where user_id=#{userId} and leave_time is NULL
+    update record set leave_time = #{leaveTime, jdbcType=TIME}
+    where user_id=#{userId}
+    and leave_time is NULL
+    and record_date = #{recordDate, jdbcType=DATE}
     </update>
 </mapper>

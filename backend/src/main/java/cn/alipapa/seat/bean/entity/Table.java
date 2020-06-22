@@ -1,4 +1,4 @@
-package cn.alipapa.seat.bean;
+package cn.alipapa.seat.bean.entity;
 
 public class Table {
     private Integer id;

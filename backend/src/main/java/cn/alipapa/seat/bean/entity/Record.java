@@ -1,25 +1,32 @@
-package cn.alipapa.seat.bean.user_outPOJO;
+package cn.alipapa.seat.bean.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class UserOutPOJO {
-    @JsonFormat(pattern = "HH:mm")
+public class Record {
+    private Date enter_time;
     private Date leave_time;
     private Integer id;
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date record_date;
-    private Integer user_id;
+    private String user_id;
 
     @Override
     public String toString() {
-        return "UserOutPOJO{" +
-                "leave_time=" + leave_time +
+        return "Record{" +
+                "enter_time=" + enter_time +
+                ", leave_time=" + leave_time +
                 ", id=" + id +
                 ", record_date=" + record_date +
-                ", user_id=" + user_id +
+                ", user_id='" + user_id + '\'' +
                 '}';
+    }
+
+    public Date getEnter_time() {
+        return enter_time;
+    }
+
+    public void setEnter_time(Date enter_time) {
+        this.enter_time = enter_time;
     }
 
     public Date getLeave_time() {
@@ -46,11 +53,11 @@ public class UserOutPOJO {
         this.record_date = record_date;
     }
 
-    public Integer getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 }

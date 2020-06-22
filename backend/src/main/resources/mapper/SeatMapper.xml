@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.alipapa.seat.dao.SeatDao">
-    <select id="getRemainingSeatsEachLevel" resultType="cn.alipapa.seat.bean.sql.LevelCount">
+    <select id="getRemainingSeatsEachLevel" resultType="cn.alipapa.seat.bean.response.LevelCount">
         SELECT total.`level`              AS `level`,
                total.count - in_use.count AS `count`
         FROM seats_count_each_level total,
