@@ -1,5 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <view>
+	<self-information name="{{name}}" serial="{{serial}}" avatar-url="{{avatarUrl}}"/>
 	<status-button
 		wx:for="{{reservations}}"
 		wx:key="index"
