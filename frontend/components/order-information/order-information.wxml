@@ -6,7 +6,7 @@
 		<text class="subtitle">在{{data}}的预约</text>
 	</view>
 	<view class="spacer"></view>
-	<button class="button">预约</button>
+	<button bind:tap="onTap" class="button" type="primary">预约</button>
 </view>
 
 <view class="time-info" wx:for="{{periord}}" >

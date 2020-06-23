@@ -28,9 +28,6 @@
 .button{
   width: 161rpx !important;
 	height: 67rpx !important;
-	background-color: #09bb07;
-  border-radius: 15rpx;
-  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;

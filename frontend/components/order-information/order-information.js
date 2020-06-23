@@ -38,6 +38,8 @@ Component({
   },
 
   methods: {
-
+    onTap(e){
+      this.triggerEvent("request", e);
+    }
   }
 })
