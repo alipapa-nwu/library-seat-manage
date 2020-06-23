@@ -1,8 +1,11 @@
 package cn.alipapa.seat.controller;
 
+import cn.alipapa.seat.bean.response.LevelCountResponse;
+import cn.alipapa.seat.bean.request.LevelSeatRequest;
 import cn.alipapa.seat.service.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,4 +17,10 @@ public class PublicController {
     public Object getRemainingSeats() {
         return seatService.getRemainingSeatsOfEachLevel();
     }
+
+    @GetMapping("/public/get_level_seats")
+    public Object getSeatInformationForEachFloor(@RequestBody LevelSeatRequest levelSeatRequest) {
+        return seatService.getSeatInformationForEachFloor(levelSeatRequest);
+    }
+
 }
