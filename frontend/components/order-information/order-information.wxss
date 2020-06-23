@@ -26,15 +26,16 @@
 }
 
 .button{
-  width: 161rpx;
-	height: 67rpx;
+  width: 161rpx !important;
+	height: 67rpx !important;
 	background-color: #09bb07;
   border-radius: 15rpx;
-  font-size: 36rpx;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .time-info{
