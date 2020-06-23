@@ -1,6 +1,5 @@
 package cn.alipapa.seat.bean.entity;
 
-
 import java.util.Date;
 
 public class Reservation {

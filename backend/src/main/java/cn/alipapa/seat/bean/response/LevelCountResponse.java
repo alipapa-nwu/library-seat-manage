@@ -1,6 +1,6 @@
 package cn.alipapa.seat.bean.response;
 
-public class LevelCount {
+public class LevelCountResponse {
     private Integer level;
     private Integer count;
 

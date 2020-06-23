@@ -1,27 +1,29 @@
-package cn.alipapa.seat.bean.entity;
+package cn.alipapa.seat.bean.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class Record {
-    private Integer id;
+public class UserInOutRequest {
     private Integer user_id;
+
     @JsonFormat(pattern = "HH:mm", timezone = "GMT+8")
     private Date enter_time;
 
     @JsonFormat(pattern = "HH:mm", timezone = "GMT+8")
     private Date leave_time;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date record_date;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "UserInRequest{" +
+                "user_id=" + user_id +
+                ", enter_time=" + enter_time +
+                ", leave_time=" + leave_time +
+                ", record_date=" + record_date +
+                '}';
     }
 
     public Integer getUser_id() {
@@ -54,16 +56,5 @@ public class Record {
 
     public void setRecord_date(Date record_date) {
         this.record_date = record_date;
-    }
-
-    @java.lang.Override
-    public java.lang.String toString() {
-        return "Record{" +
-                "id=" + id +
-                ", user_id=" + user_id +
-                ", enter_time=" + enter_time +
-                ", leave_time=" + leave_time +
-                ", record_date=" + record_date +
-                '}';
     }
 }
