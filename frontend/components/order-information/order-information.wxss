@@ -1,0 +1,48 @@
+/* components/component-tag-name.wxss */
+.order-info{
+  margin: 50rpx 30rpx 0 30rpx;
+  display: flex;
+  border-bottom: solid 1rpx #d4d4d4;
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+.title{
+  font-size: 48rpx;
+	font-weight: bold;
+}
+
+.subtitle{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.button{
+  width: 161rpx !important;
+	height: 67rpx !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.time-info{
+  height: 88rpx;
+  border-bottom: solid 1rpx #d4d4d4;
+  margin: 0 30rpx 0 30rpx;
+  display: flex;
+}
+
+.time-text{
+  margin: 20rpx 30rpx 20rpx 30rpx;
+  font-size: 34rpx;
+}
