@@ -10,4 +10,11 @@
              in_use_seats_each_level in_use
         WHERE total.`level` = in_use.`level`
     </select>
+
+    <select id="getSeatsOfTable" resultType="cn.alipapa.seat.bean.entity.Seat">
+        SELECT *
+        FROM seat
+        WHERE seat.table_id = #{tableId}
+        order by position
+    </select>
 </mapper>
