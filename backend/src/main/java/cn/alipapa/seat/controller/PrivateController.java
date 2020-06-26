@@ -20,7 +20,7 @@ public class PrivateController {
     public Object bindSerial(@RequestBody BindRequest bindRequest,
                              @RequestHeader("open_id") String openId,
                              @RequestHeader("session_id") String sessionId,
-                             User userInfo) {
-        return bindSerialService.bindSerial(bindRequest);
+                             User user) {
+        return bindSerialService.bindSerial(bindRequest, user);
     }
 }

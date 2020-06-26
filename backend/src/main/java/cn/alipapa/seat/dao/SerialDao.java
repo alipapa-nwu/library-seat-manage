@@ -3,8 +3,8 @@ package cn.alipapa.seat.dao;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BindDao {
+public interface SerialDao {
     String getPassword(String serial);
-    int getBindStatus(String serial);
-    int bindOpenid(String openid,String session_key,String serial);
+
+    int bindSerial(String openid, String serial);
 }
