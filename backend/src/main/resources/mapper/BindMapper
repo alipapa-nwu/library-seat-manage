@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.alipapa.seat.dao.BindDao">
+    <select id="getPassword" resultType="String">
+        SELECT serial.password
+        FROM serial
+        WHERE serial=#{serial}
+    </select>
+    <select id="getBindStatus">
+        select COUNT(*) from user
+        where serial=#{serial}
+    </select>
+    <insert id="bindOpenid">
+        INSERT INTO user (serial,openid,session_key)
+        VALUES (#{serial},#{openid},#{session_key})
+    </insert>
+</mapper>
