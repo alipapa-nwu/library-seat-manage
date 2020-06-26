@@ -21,7 +21,16 @@ public class SeatService {
     ReservationDao reservationDao;
 
     public List<LevelCountResponse> getRemainingSeatsOfEachLevel() {
-        return seatDao.getRemainingSeatsEachLevel();
+        var total = seatDao.getTotalSeatsEachLevel();
+        var inUse = seatDao.getInUseSeatsEachLevel();
+        for (var i : inUse) {
+            for (var j : total) {
+                if (i.getLevel().equals(j.getLevel())) {
+                    j.setCount(j.getCount() - i.getCount());
+                }
+            }
+        }
+        return total;
     }
 
     public LevelSeatResponse getSeatInformationForEachFloor(int level, boolean today) {

@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface SeatDao {
-    List<LevelCountResponse> getRemainingSeatsEachLevel();
+    List<LevelCountResponse> getInUseSeatsEachLevel();
+
+    List<LevelCountResponse> getTotalSeatsEachLevel();
 
     List<Seat> getSeatsOfTable(int tableId);
 }
