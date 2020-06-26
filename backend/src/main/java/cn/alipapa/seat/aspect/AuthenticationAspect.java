@@ -28,9 +28,9 @@ public class AuthenticationAspect {
     public Object authenticateRequest(ProceedingJoinPoint joinPoint) throws Throwable {
         // 获取参数
         var args = joinPoint.getArgs();
-        // 获取认证信息，约定第二个参数为openId, 第三个为sessionId
-        var openId = ((String) args[1]);
-        var sessionId = ((String) args[2]);
+        // 获取认证信息，约定第一个参数为openId, 第二个为sessionId
+        var openId = ((String) args[0]);
+        var sessionId = ((String) args[1]);
         // 查找user表，校验认证信息
         var user = userDao.getUserInformation(openId);
         // 错误处理
@@ -39,8 +39,8 @@ public class AuthenticationAspect {
         } else if (!user.getSession_id().equals(sessionId)) {
             throw new AccessDeniedException("登陆失败：认证已过期");
         }
-        // 约定第四个参数为获取到的用户信息
-        args[3] = user;
+        // 约定第三个参数为获取到的用户信息
+        args[2] = user;
         return joinPoint.proceed(args);
     }
 }
