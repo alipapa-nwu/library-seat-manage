@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @ControllerAdvice
 public class GlobalExceptionController {
@@ -20,32 +21,33 @@ public class GlobalExceptionController {
     @ExceptionHandler(value = HttpMessageConversionException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public HttpResponseBody invalidFormatExceptionHandler(HttpServletRequest req, Exception e) {
+    public HttpResponseBody invalidFormatExceptionHandler(HttpServletRequest req, HttpServletResponse res, Exception e) {
         logger.error("Exception caught:", e);
-        var res = new HttpResponseBody();
-        res.setStatus(400);
-        res.setError("参数解析错误");
-        return res;
+        var body = new HttpResponseBody();
+        body.setStatus(400);
+        body.setError("参数解析错误");
+        return body;
     }
 
     @ExceptionHandler(value = CustomException.class)
     @ResponseBody
-    public HttpResponseBody customExceptionHandler(HttpServletRequest req, Exception e) {
+    public HttpResponseBody customExceptionHandler(HttpServletRequest req, HttpServletResponse res, CustomException e) {
         logger.error("Exception caught:", e);
-        var res = new HttpResponseBody();
-        res.setStatus(400);
-        res.setError(e.getMessage());
-        return res;
+        res.setStatus(e.httpStatus());
+        var body = new HttpResponseBody();
+        body.setStatus(e.httpStatus());
+        body.setError(e.getMessage());
+        return body;
     }
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public HttpResponseBody exceptionHandler(HttpServletRequest req, Exception e) {
+    public HttpResponseBody exceptionHandler(HttpServletRequest req, HttpServletResponse res, Exception e) {
         logger.error("Exception caught:", e);
-        var res = new HttpResponseBody();
-        res.setStatus(500);
-        res.setError("服务器未知异常，请稍后再试");
-        return res;
+        var body = new HttpResponseBody();
+        body.setStatus(500);
+        body.setError("服务器未知异常，请稍后再试");
+        return body;
     }
 }
