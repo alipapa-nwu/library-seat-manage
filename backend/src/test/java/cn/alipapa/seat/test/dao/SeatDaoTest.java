@@ -16,7 +16,7 @@ public class SeatDaoTest {
 
     @Test
     public void getSeatsCountEachLevel() {
-        var result = seatDao.getRemainingSeatsEachLevel();
+        var result = seatDao.getInUseSeatsEachLevel();
         assert result != null;
         System.out.println(result);
     }

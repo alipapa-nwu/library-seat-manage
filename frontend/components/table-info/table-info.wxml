@@ -1,0 +1,22 @@
+<!--components/table-info/table-info.wxml-->
+<view class="table-info">
+  <view class="label">
+    <text>B12</text>
+  </view>
+
+  <view
+    wx:for="{{seats}}"
+    wx:for-item="seat"
+    wx:for-index="seatIndex"
+    wx:key="seatIndex"
+    style="border-color: {{seat.borderColor}};"
+    class="seat">
+      <view
+        wx:for="{{seat.covers}}"
+        wx:for-item="cover"
+        wx:for-index="coverIndex"
+        wx:key="coverIndex"
+        style="background-color: {{cover.color}};height: {{cover.height}}%;"
+        class="cover"/>
+  </view>
+</view>
