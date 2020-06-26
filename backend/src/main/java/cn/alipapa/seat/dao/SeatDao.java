@@ -13,4 +13,6 @@ public interface SeatDao {
     List<LevelCountResponse> getTotalSeatsEachLevel();
 
     List<Seat> getSeatsOfTable(int tableId);
+
+    Seat getSeat(int id);
 }

@@ -19,4 +19,9 @@
         WHERE seat.table_id = #{tableId}
         order by position
     </select>
+    <select id="getSeat" resultType="cn.alipapa.seat.bean.entity.Seat">
+        select *
+        from seat
+        where id = #{id}
+    </select>
 </mapper>

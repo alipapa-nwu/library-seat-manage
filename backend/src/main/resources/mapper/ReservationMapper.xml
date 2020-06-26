@@ -32,6 +32,7 @@
           and CURTIME() between r.start and r.end
         limit 1
     </select>
+
     <select id="getReservations" resultType="cn.alipapa.seat.bean.entity.Reservation">
         select *
         from reservation r
@@ -40,4 +41,20 @@
         limit #{limit}
             offset #{offset}
     </select>
+
+    <select id="getLatestReservationOfUser" resultType="cn.alipapa.seat.bean.entity.Reservation">
+        select *
+        from reservation r
+        where r.reservation_date = #{date}
+          and r.user_id = #{userId}
+        order by r.end desc
+        limit 1
+    </select>
+
+
+    <insert id="insertAReservation" useGeneratedKeys="true">
+        insert into reservation
+            (user_id, seat_id, start, end, reservation_date)
+            value (#{userId}, #{seatId}, #{start}, #{end}, #{date})
+    </insert>
 </mapper>

@@ -1,6 +1,6 @@
 package cn.alipapa.seat.controller;
 
-import cn.alipapa.seat.bean.HttpResponseBody;
+import cn.alipapa.seat.bean.response.HttpResponseBody;
 import cn.alipapa.seat.exception.CustomException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

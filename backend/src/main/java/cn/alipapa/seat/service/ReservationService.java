@@ -1,8 +1,12 @@
 package cn.alipapa.seat.service;
 
+import cn.alipapa.seat.bean.entity.User;
+import cn.alipapa.seat.bean.request.ReservationRequest;
 import cn.alipapa.seat.bean.response.BinaryStatusResponse;
 import cn.alipapa.seat.dao.ReservationDao;
+import cn.alipapa.seat.dao.SeatDao;
 import cn.alipapa.seat.exception.CustomException;
+import cn.alipapa.seat.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +16,12 @@ import java.util.Date;
 public class ReservationService {
     @Autowired
     ReservationDao reservationDao;
+
+    @Autowired
+    SeatDao seatDao;
+
+    @Autowired
+    UserService userService;
 
     public BinaryStatusResponse userIn(int userId) {
         var reservation = reservationDao.getProceedingReservationOfUser(userId);
@@ -47,6 +57,55 @@ public class ReservationService {
             }
         } else {
             throw new CustomException("用户离馆失败：用户行为异常");
+        }
+        return new BinaryStatusResponse(true);
+    }
+
+    public boolean haveProceedingReservationFor(boolean today, int userId) {
+        var date = new Date();
+        if (!today) {
+            date = new Date(date.getTime() + 24 * 60 * 60 * 1000);
+        }
+        var reservation = reservationDao.getLatestReservationOfUser(date, userId);
+        if (reservation == null) {
+            return false;
+        } else if (today) {
+            var currentEndTime = DateUtil.setCurrentYMD(reservation.getEnd());
+            return new Date().getTime() < currentEndTime.getTime();
+        } else {
+            return true;
+        }
+    }
+
+    public BinaryStatusResponse requestReservation(ReservationRequest request, User user) {
+        var seat = seatDao.getSeat(request.getSeat_id());
+        if (seat == null) {
+            throw new CustomException("预约失败：未找到座位");
+        }
+        if (!DateUtil.isValidReservationTime(request.getStart())
+                || !DateUtil.isValidReservationTime(request.getStart())
+                || !(request.getEnd().getTime() - request.getStart().getTime() > 0)) {
+            throw new CustomException("预约失败：非法预约时间");
+        }
+        var punishDate = user.getPunish_date();
+        if (DateUtil.stillInPunish(punishDate)) {
+            throw new CustomException("预约失败：用户尚在惩罚期");
+        }
+        if (haveProceedingReservationFor(request.isToday(), user.getId())) {
+            throw new CustomException("预约失败：当天已有预约或预约正在进行");
+        }
+        var date = new Date();
+        if (!request.isToday()) {
+            if (!DateUtil.canMakeTomorrowsReservation()) {
+                throw new CustomException("预约失败：此时不能预约明天的座位");
+            }
+            date = new Date(date.getTime() + 24 * 60 * 60 * 1000);
+        }
+        // 终于可以预约了
+        var res = reservationDao.insertAReservation(user.getId(), request.getSeat_id(), request.getStart(),
+                request.getEnd(), date);
+        if (res != 1) {
+            throw new CustomException("预约失败：数据库异常");
         }
         return new BinaryStatusResponse(true);
     }
