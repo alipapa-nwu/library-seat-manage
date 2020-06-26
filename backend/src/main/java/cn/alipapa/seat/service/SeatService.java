@@ -34,11 +34,14 @@ public class SeatService {
     }
 
     public LevelSeatResponse getSeatInformationForEachFloor(int level, boolean today) {
-        var date = new Date();
+				var date = new Date();
+				// 如果是明天，加24小时
         if (!today) {
             date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
-        }
-        var tables = tableDao.getTablesInFloor(level);
+				}
+				// 获取指定楼层所有桌子
+				var tables = tableDao.getTablesInFloor(level);
+				// 创建响应结构，把每一个桌子对应的座位、每个座位当天的预约装入响应结构
         var response = new LevelSeatResponse();
         for (var table : tables) {
             var tableResponse = new LevelSeatResponse.TableResponse(table);
@@ -49,7 +52,8 @@ public class SeatService {
                 tableResponse.getSeats().add(seatResponse);
             }
             response.getTables().add(tableResponse);
-        }
+				}
+				// 返回响应结构
         return response;
     }
 }

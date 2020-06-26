@@ -22,12 +22,15 @@ public class UserService {
     ReservationDao reservationDao;
 
     public BinaryStatusResponse bindSerial(BindRequest bindRequest, User user) {
+				// 如果用户的学号不为空，则已经绑定过了，抛出异常
         if (user.getSerial() != null) {
             throw new CustomException("绑定失败：不能重复绑定");
-        }
+				}
+				// 如果用户给的学号和数据库中不匹配，返回403
         if (!(serialDao.getPassword(bindRequest.getSerial()).equals(bindRequest.getPassword()))) {
             throw new AccessDeniedException("绑定失败：学号与身份证后六位不匹配");
-        }
+				}
+				// 设置用户的serial字段，完成绑定
         if (serialDao.bindSerial(user.getOpenid(), bindRequest.getSerial()) != 1) {
             throw new AccessDeniedException("绑定失败：数据库异常");
         }
