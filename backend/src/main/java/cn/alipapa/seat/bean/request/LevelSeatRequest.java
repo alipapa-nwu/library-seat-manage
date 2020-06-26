@@ -1,7 +1,6 @@
 package cn.alipapa.seat.bean.request;
 
 public class LevelSeatRequest {
-<<<<<<< Updated upstream
     private Integer level;
 
     @Override
@@ -18,6 +17,4 @@ public class LevelSeatRequest {
     public void setLevel(Integer level) {
         this.level = level;
     }
-=======
->>>>>>> Stashed changes
 }

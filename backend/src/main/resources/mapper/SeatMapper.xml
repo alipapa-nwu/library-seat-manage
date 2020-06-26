@@ -11,12 +11,10 @@
         WHERE total.`level` = in_use.`level`
     </select>
 
-    <select id="getSeatInformationForEachFloor" resultType="cn.alipapa.seat.bean.response.LevelSeatResponse">
-        SELECT seat.id       AS id,
-               seat.table_id AS table_id,
-               seat.position AS `position`
-        FROM seat, `table`
-        WHERE seat.table_id = `table`.id
-        and `table`.level = #{level}
+    <select id="getSeatsOfTable" resultType="cn.alipapa.seat.bean.entity.Seat">
+        SELECT *
+        FROM seat
+        WHERE seat.table_id = #{tableId}
+        order by position
     </select>
 </mapper>

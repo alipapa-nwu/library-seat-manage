@@ -1,7 +1,7 @@
 package cn.alipapa.seat.dao;
 
+import cn.alipapa.seat.bean.entity.Seat;
 import cn.alipapa.seat.bean.response.LevelCountResponse;
-import cn.alipapa.seat.bean.response.LevelSeatResponse;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,5 +10,5 @@ import java.util.List;
 public interface SeatDao {
     List<LevelCountResponse> getRemainingSeatsEachLevel();
 
-    List<LevelSeatResponse> getSeatInformationForEachFloor(int level);
+    List<Seat> getSeatsOfTable(int tableId);
 }
