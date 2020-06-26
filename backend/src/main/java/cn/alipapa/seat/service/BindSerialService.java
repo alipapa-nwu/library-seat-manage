@@ -2,7 +2,7 @@ package cn.alipapa.seat.service;
 
 import cn.alipapa.seat.bean.request.BindRequest;
 import cn.alipapa.seat.bean.response.BindStatusResponse;
-import cn.alipapa.seat.bean.response.OpenidRequestResponse;
+import cn.alipapa.seat.bean.response.WechatLoginResponse;
 import cn.alipapa.seat.dao.BindDao;
 import cn.alipapa.seat.exception.BindException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +29,15 @@ public class BindSerialService {
         if (bindDao.getBindStatus(bindRequest.getSerial()) != 0) {
             throw new BindException("不能重复绑定");
         }
-        OpenidRequestResponse openidRequestResponse = httpRequest(openidRequestInit(bindRequest));
-        if (bindDao.bindOpenid(openidRequestResponse.getOpenid(),openidRequestResponse.getSession_key(),bindRequest.getSerial()) != 1) {
+        WechatLoginResponse wechatLoginResponse = httpRequest(openidRequestInit(bindRequest));
+        if (bindDao.bindOpenid(wechatLoginResponse.getOpenid(), wechatLoginResponse.getSession_key(), bindRequest.getSerial()) != 1) {
             throw new BindException("绑定失败");
         }
         return new BindStatusResponse(true);
     }
 
     private HashMap<String, String> openidRequestInit(BindRequest bindRequest) {
-        HashMap<String, String> paraMap = new HashMap<String, String>();
-        HashMap<String, String> requestResult = new HashMap<String, String>();
+        HashMap<String, String> paraMap = new HashMap<>();
         paraMap.put("appid", appID);
         paraMap.put("secret", appsecret);
         paraMap.put("js_code", bindRequest.getJs_code());
@@ -46,11 +45,11 @@ public class BindSerialService {
         return paraMap;
     }//hashMap打包appid等数据
 
-    private OpenidRequestResponse httpRequest(HashMap<String, String> map) {
+    private WechatLoginResponse httpRequest(HashMap<String, String> map) {
         RestTemplate request = new RestTemplate();
-        OpenidRequestResponse openidRequestResponse;
-        openidRequestResponse = request.getForObject(URL, OpenidRequestResponse.class, map);//向code2session接口发送请求
-        switch (openidRequestResponse.getErrcode()) {
+        WechatLoginResponse wechatLoginResponse;
+        wechatLoginResponse = request.getForObject(URL, WechatLoginResponse.class, map);//向code2session接口发送请求
+        switch (wechatLoginResponse.getErrcode()) {
             case 1:
                 throw new BindException("系统繁忙，稍后再试");
             case 40029:
@@ -59,6 +58,6 @@ public class BindSerialService {
                 throw new BindException("访问过于频繁，请一分钟后再试");
         }
         //匹配错误代码
-        return openidRequestResponse;
+        return wechatLoginResponse;
     }
 }

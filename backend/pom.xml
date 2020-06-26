@@ -62,6 +62,13 @@
             <version>2.3.0.RELEASE</version>
         </dependency>
 
+        <!-- shiro for authentication -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>

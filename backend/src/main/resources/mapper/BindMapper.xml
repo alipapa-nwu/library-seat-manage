@@ -6,14 +6,15 @@
     <select id="getPassword" resultType="String">
         SELECT serial.password
         FROM serial
-        WHERE serial=#{serial}
+        WHERE serial = #{serial}
     </select>
-    <select id="getBindStatus">
-        select COUNT(*) from user
-        where serial=#{serial}
+    <select id="getBindStatus" resultType="java.lang.Integer">
+        select COUNT(*)
+        from user
+        where serial = #{serial}
     </select>
     <insert id="bindOpenid">
-        INSERT INTO user (serial,openid,session_key)
-        VALUES (#{serial},#{openid},#{session_key})
+        INSERT INTO user (serial, openid, session_key)
+        VALUES (#{serial}, #{openid}, #{session_key})
     </insert>
 </mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.alipapa.seat.dao.UserDao">
+    <select id="getUserInformation" resultType="cn.alipapa.seat.bean.entity.User">
+        SELECT *
+        FROM user
+        WHERE user.openid = #{openId}
+    </select>
+    <insert id="insertAUser" useGeneratedKeys="true">
+        insert into user (openid)
+            value (#{openId});
+    </insert>
+    <update id="updateSessionInfo">
+        update user
+        set session_id  = #{sessionId},
+            session_key = #{sessionKey}
+        where openid = #{openId};
+    </update>
+</mapper>
