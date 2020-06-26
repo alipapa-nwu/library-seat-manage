@@ -9,4 +9,10 @@ import java.util.List;
 @Repository
 public interface ReservationDao {
     List<Reservation> getReservationOnSeatAtDate(int seatId, Date date);
+
+    int updateEnterTime(int reservationId, Date enterTime);
+
+    int updateLeaveTime(int reservationId, Date leaveTime);
+
+    Reservation getProceedingReservationOfUser(int userId);
 }

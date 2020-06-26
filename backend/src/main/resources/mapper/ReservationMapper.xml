@@ -9,4 +9,27 @@
         where seat_id = #{seatId}
           and r.reservation_date = #{date, jdbcType=DATE}
     </select>
+
+    <update id="updateEnterTime">
+        update reservation r
+        set r.enter_time = #{enterTime}
+        where r.id = #{reservationId}
+        limit 1
+    </update>
+
+    <update id="updateLeaveTime">
+        update reservation r
+        set r.leave_time = #{leaveTime}
+        where r.id = #{reservationId}
+        limit 1
+    </update>
+
+    <select id="getProceedingReservationOfUser" resultType="cn.alipapa.seat.bean.entity.Reservation">
+        select *
+        from reservation r
+        where r.user_id = #{userId}
+          and r.reservation_date = CURDATE()
+          and CURTIME() between r.start and r.end
+        limit 1
+    </select>
 </mapper>
