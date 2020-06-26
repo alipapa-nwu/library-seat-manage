@@ -15,4 +15,6 @@ public interface ReservationDao {
     int updateLeaveTime(int reservationId, Date leaveTime);
 
     Reservation getProceedingReservationOfUser(int userId);
+
+    List<Reservation> getReservations(int userId, int limit, int offset);
 }

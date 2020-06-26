@@ -3,14 +3,14 @@ package cn.alipapa.seat.controller;
 import cn.alipapa.seat.annotation.PrivateRequestHandler;
 import cn.alipapa.seat.bean.entity.User;
 import cn.alipapa.seat.bean.request.BindRequest;
-import cn.alipapa.seat.service.BindSerialService;
+import cn.alipapa.seat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PrivateController {
     @Autowired
-    BindSerialService bindSerialService;
+    UserService userService;
 
     @PostMapping("/private/bind_serial")
     @PrivateRequestHandler
@@ -18,7 +18,7 @@ public class PrivateController {
                              @RequestHeader("session_id") String sessionId,
                              User user,
                              @RequestBody BindRequest bindRequest) {
-        return bindSerialService.bindSerial(bindRequest, user);
+        return userService.bindSerial(bindRequest, user);
     }
 
     @GetMapping("/private/get_reservations")
@@ -26,7 +26,7 @@ public class PrivateController {
     public Object getReservations(@RequestHeader("open_id") String openId,
                                   @RequestHeader("session_id") String sessionId,
                                   User user,
-                                  @RequestBody BindRequest bindRequest) {
-        return bindSerialService.bindSerial(bindRequest, user);
+                                  @RequestParam("page") int page) {
+        return userService.getReservations(user, page);
     }
 }

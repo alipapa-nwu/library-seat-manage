@@ -32,4 +32,12 @@
           and CURTIME() between r.start and r.end
         limit 1
     </select>
+    <select id="getReservations" resultType="cn.alipapa.seat.bean.entity.Reservation">
+        select *
+        from reservation r
+        where r.user_id = #{userId}
+        order by r.reservation_date desc
+        limit #{limit}
+            offset #{offset}
+    </select>
 </mapper>
