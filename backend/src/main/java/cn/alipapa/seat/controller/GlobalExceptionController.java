@@ -30,7 +30,6 @@ public class GlobalExceptionController {
 
     @ExceptionHandler(value = CustomException.class)
     @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public HttpResponseBody customExceptionHandler(HttpServletRequest req, Exception e) {
         logger.error("Exception caught:", e);
         var res = new HttpResponseBody();
