@@ -78,22 +78,27 @@ public class ReservationService {
     }
 
     public BinaryStatusResponse requestReservation(ReservationRequest request, User user) {
+				// 找出请求的座位，未找到即报错
         var seat = seatDao.getSeat(request.getSeat_id());
         if (seat == null) {
             throw new CustomException("预约失败：未找到座位");
-        }
+				}
+				// 如果预约时间不在一个图书馆日内，或结束大于开始，则报错
         if (!DateUtil.isValidReservationTime(request.getStart())
                 || !DateUtil.isValidReservationTime(request.getStart())
                 || !(request.getEnd().getTime() - request.getStart().getTime() > 0)) {
             throw new CustomException("预约失败：非法预约时间");
-        }
+				}
+				// 如果用户尚在惩罚期，报错
         var punishDate = user.getPunish_date();
         if (DateUtil.stillInPunish(punishDate)) {
             throw new CustomException("预约失败：用户尚在惩罚期");
-        }
+				}
+				// 若果已有预约正在进行或者明天有预约则报错
         if (haveProceedingReservationFor(request.isToday(), user.getId())) {
             throw new CustomException("预约失败：当天已有预约或预约正在进行");
-        }
+				}
+				// 如果是18:30之前预约第二天座位则报错
         var date = new Date();
         if (!request.isToday()) {
             if (!DateUtil.canMakeTomorrowsReservation()) {
@@ -101,7 +106,7 @@ public class ReservationService {
             }
             date = new Date(date.getTime() + 24 * 60 * 60 * 1000);
         }
-        // 终于可以预约了
+        // 向数据库插入预约记录，完成预约
         var res = reservationDao.insertAReservation(user.getId(), request.getSeat_id(), request.getStart(),
                 request.getEnd(), date);
         if (res != 1) {
