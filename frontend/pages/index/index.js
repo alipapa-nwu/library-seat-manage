@@ -1,31 +1,19 @@
 // index.js
 Page({
-  data: {
-    levelData: [
-      {
-        level: 1,
-        remain: 60
+  data: {},
+  onLoad() {
+    wx.request({
+      url: 'https://seat.milolab.cn/public/get_remaining_seats',
+      success: res => {
+        this.setData({
+          levelData: res.data.data
+        })
       },
-      {
-        level: 2,
-        remain: 50
-      },
-      {
-        level: 3,
-        remain: 40
-      },
-      {
-        level: 4,
-        remain: 30
-      },
-      {
-        level: 5,
-        remain: 20
-      },
-      {
-        level: 6,
-        remain: 10
-      },
-    ]
+      fail: res => {
+        wx.showToast({
+          title: res.data.error || "未知服务器异常，请稍后再试",
+        })
+      }
+    })
   }
 })

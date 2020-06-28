@@ -19,8 +19,8 @@ public class PrivateController {
 
     @PostMapping("/private/bind_serial")
     @PrivateRequestHandler
-    public Object bindSerial(@RequestHeader("open_id") String openId,
-                             @RequestHeader("session_id") String sessionId,
+    public Object bindSerial(@RequestHeader("open-id") String openId,
+                             @RequestHeader("session-id") String sessionId,
                              User user,
                              @RequestBody BindRequest bindRequest) {
         return userService.bindSerial(bindRequest, user);
@@ -28,8 +28,8 @@ public class PrivateController {
 
     @GetMapping("/private/get_reservations")
     @PrivateRequestHandler
-    public Object getReservations(@RequestHeader("open_id") String openId,
-                                  @RequestHeader("session_id") String sessionId,
+    public Object getReservations(@RequestHeader("open-id") String openId,
+                                  @RequestHeader("session-id") String sessionId,
                                   User user,
                                   @RequestParam("page") int page) {
         return userService.getReservations(user, page);
@@ -37,8 +37,8 @@ public class PrivateController {
 
     @PostMapping("/private/request_reservation")
     @PrivateRequestHandler
-    public Object requestReservation(@RequestHeader("open_id") String openId,
-                                     @RequestHeader("session_id") String sessionId,
+    public Object requestReservation(@RequestHeader("open-id") String openId,
+                                     @RequestHeader("session-id") String sessionId,
                                      User user,
                                      @RequestBody ReservationRequest request) {
         return reservationService.requestReservation(request, user);

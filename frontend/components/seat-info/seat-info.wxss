@@ -46,3 +46,10 @@
   margin: 20rpx 30rpx 20rpx 30rpx;
   font-size: 34rpx;
 }
+
+.empty{
+  color: #d4d4d4;
+  display: block;
+  text-align: center;
+  margin: 20rpx;
+}

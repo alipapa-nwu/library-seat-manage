@@ -1,13 +1,13 @@
 <!--pages/request/request.wxml-->
 <view>
   <view class="header">
-    <text class="title">预约座位B6-1</text>
-    <text class="subtitle">在2020-5-26(今天)的预约:</text>
+    <text class="title">预约座位 {{label}}</text>
+    <text class="subtitle">在{{date}}({{today?"今天":"明天"}})的预约:</text>
   </view>
   <view class="divider"></view>
-  <time-picker title="起始时间" value="10:00" />
+  <time-picker title="起始时间" model:value="{{start}}" />
   <view class="divider"></view>
-  <time-picker title="结束时间" value="12:00" />
+  <time-picker title="结束时间" model:value="{{end}}" />
   <view class="divider"></view>
-  <button type="primary" class="submit">提交</button>
+  <button type="primary" class="submit" bind:tap="onSubmit">提交</button>
 </view>

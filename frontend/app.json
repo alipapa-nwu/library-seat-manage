@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/bind/bind",
     "pages/reservation/reservation",
-    "pages/request/request"
+    "pages/request/request",
+    "pages/seat/seat"
   ],
   "window": {
     "backgroundTextStyle": "light",
