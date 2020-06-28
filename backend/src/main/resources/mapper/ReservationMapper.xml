@@ -58,7 +58,7 @@
             value (#{userId}, #{seatId}, #{start}, #{end}, #{date})
     </insert>
 
-    <select id="getUseridBySerial">
+    <select id="getUseridBySerial" resultType="cn.alipapa.seat.bean.entity.Serial">
         select id
         from user
         where serial= #{serial}

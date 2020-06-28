@@ -24,10 +24,11 @@ public class ReservationService {
     UserService userService;
 
     public BinaryStatusResponse userIn(String serial) {
-        var userId = reservationDao.getUseridBySerial(serial);//通过serial获取对应的userid
-        if (userId == 0) {
+        var userIdEntity = reservationDao.getUseridBySerial(serial);//通过serial获取对应的userid
+        if (userIdEntity == null) {
             throw new CustomException("用户进馆失败：该用户未在本系统注册");
         }
+        int userId=userIdEntity.getId();
         var reservation = reservationDao.getProceedingReservationOfUser(userId);
         if (reservation == null) {
             // 没有找到预约
@@ -50,10 +51,11 @@ public class ReservationService {
     }
 
     public BinaryStatusResponse userOutRecord(String serial) {
-        var userId = reservationDao.getUseridBySerial(serial);//通过serial获取对应的userid
-        if (userId == 0) {
+        var userIdEntity = reservationDao.getUseridBySerial(serial);//通过serial获取对应的userid
+        if (userIdEntity == null) {
             throw new CustomException("用户进馆失败：该用户未在本系统注册");
         }
+        int userId=userIdEntity.getId();
         var reservation = reservationDao.getProceedingReservationOfUser(userId);
         if (reservation == null) {
             throw new CustomException("用户离馆失败：不在预约时段内");
