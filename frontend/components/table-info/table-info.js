@@ -1,4 +1,6 @@
 // components/table-info/table-info.js
+const app = getApp();
+
 Component({
   properties: {
     tableData: Object
@@ -15,9 +17,7 @@ Component({
         let seat = {};
         let totalReservationDuration = 0;
         for (let i of seatData.reservations) {
-          i.start = new Date(i.start);
-          i.end = new Date(i.end);
-          totalReservationDuration += (i.end - i.start);
+          totalReservationDuration += (new Date(i.end) - new Date(i.start));
         }
         if (totalReservationDuration == 0) {
           seat.borderColor = "#09bb07";
@@ -28,8 +28,8 @@ Component({
         }
         const start = new Date("1970-1-1 08:00:00");
         const timelines = seatData.reservations.reduce((arr, reservation) => {
-          arr.push(reservation.start - start);
-          arr.push(reservation.end - start);
+          arr.push(new Date(reservation.start) - start);
+          arr.push(new Date(reservation.end) - start);
           return arr;
         }, [])
         timelines.unshift(0);
@@ -48,6 +48,14 @@ Component({
       this.setData({
         label: label,
         seats
+      })
+    }
+  },
+  methods: {
+    onTap(){
+      app.globalData.currentTableData = this.properties.tableData;
+      wx.navigateTo({
+        url: '/pages/seat/seat',
       })
     }
   }

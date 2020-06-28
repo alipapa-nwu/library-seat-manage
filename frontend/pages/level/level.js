@@ -2,7 +2,7 @@
 Page({
   data: {
     levelData: {},
-    today: false,
+    today: true,
     gridLimit: {}
   },
   onLoad(option) {
