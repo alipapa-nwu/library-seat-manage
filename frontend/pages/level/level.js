@@ -21,7 +21,7 @@ Page({
     wx.request({
       url: 'https://seat.milolab.cn/public/get_level_seats',
       data: {
-        level: this.data.level,
+        level: this.data.level-1,
         today: this.data.today
       },
       fail: res => {
@@ -38,7 +38,7 @@ Page({
         this.setData({
           levelData,
           gridLimit: getGridLimit(levelData)
-        })
+        });
         wx.showToast({
           title: "楼层数据已刷新"
         })
