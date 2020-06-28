@@ -32,8 +32,10 @@ Component({
     }
   },
   methods: {
-    onTap(e) {
-      this.triggerEvent("request", e);
+    onTap() {
+      wx.navigateTo({
+        url: `/pages/request/request?seatId=${this.properties.seat.seat.id}&today=${this.properties.today}&label=${this.data.label}`,
+      })
     }
   }
 })
