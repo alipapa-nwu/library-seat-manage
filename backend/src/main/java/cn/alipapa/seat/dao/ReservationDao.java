@@ -21,4 +21,6 @@ public interface ReservationDao {
     Reservation getLatestReservationOfUser(Date date, int userId);
 
     int insertAReservation(int userId, int seatId, Date start, Date end, Date date);
+
+    int getUseridBySerial(String serial);
 }

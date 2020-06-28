@@ -1,20 +1,20 @@
 package cn.alipapa.seat.bean.request;
 
 public class UserInOutRequest {
-    private Integer user_id;
+    private String serial;
 
     @Override
     public String toString() {
         return "UserInOutRequest{" +
-                "user_id=" + user_id +
+                "serial='" + serial + '\'' +
                 '}';
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public String getSerial() {
+        return serial;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setSerial(String serial) {
+        this.serial = serial;
     }
 }

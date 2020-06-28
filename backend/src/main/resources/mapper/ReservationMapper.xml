@@ -57,4 +57,10 @@
             (user_id, seat_id, start, end, reservation_date)
             value (#{userId}, #{seatId}, #{start}, #{end}, #{date})
     </insert>
+
+    <select id="getUseridBySerial">
+        select id
+        from user
+        where serial= #{serial}
+    </select>
 </mapper>
