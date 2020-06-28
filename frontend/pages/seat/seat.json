@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "seat-info": "/components/seat-info/seat-info"
+  }
+}

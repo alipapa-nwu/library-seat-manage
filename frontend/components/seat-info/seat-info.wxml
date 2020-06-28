@@ -1,15 +1,15 @@
 <!-- 组件模板 -->
 <view class="order-info">
 	<view class="text">
-		<text class="title">座位{{seat}}</text>
+		<text class="title">{{label}}</text>
 		<view class="spacer"></view>
-		<text class="subtitle">在{{data}}的预约</text>
+		<text class="subtitle">在{{date}}的预约</text>
 	</view>
 	<view class="spacer"></view>
 	<button bind:tap="onTap" class="button" type="primary">预约</button>
 </view>
-
-<view class="time-info" wx:for="{{periord}}" >
+<text class="empty" wx:if="{{noReservation}}">没有预约</text>
+<view class="time-info" wx:for="{{period}}" wx:key="index" >
 	<text class="time-text">#{{index+1}}</text>
 	<view class="spacer"></view>
 	<text class="time-text">{{item.start}}-{{item.end}}</text>
