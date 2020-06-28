@@ -6,9 +6,10 @@ spring:
     name: lib-seat-back
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://pub-test.milolab.cn:32768/seat?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: seat
-    password: alipapa
+    url: jdbc:mysql://pub-test.milolab.cn:3306/seat?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia
+    /Shanghai
+    username: admin
+    password: milowang2020
 
 mybatis:
   type-aliases-package: cn.alipapa.seat.bean

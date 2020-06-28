@@ -1,4 +1,4 @@
-package cn.alipapa.seat.bean;
+package cn.alipapa.seat.bean.response;
 
 public class HttpResponseBody {
     private Integer status;

@@ -1,5 +1,7 @@
 package cn.alipapa.seat.bean.entity;
 
+import cn.alipapa.seat.utils.DateUtil;
+
 import java.util.Date;
 
 public class Reservation {
@@ -8,6 +10,8 @@ public class Reservation {
     private Integer seat_id;
     private Date start;
     private Date end;
+    private Date enter_time;
+    private Date leave_time;
     private Date reservation_date;
 
     @Override
@@ -69,4 +73,34 @@ public class Reservation {
     public void setReservation_date(Date reservation_date) {
         this.reservation_date = reservation_date;
     }
+
+    public Date getEnter_time() {
+        return enter_time;
+    }
+
+    public void setEnter_time(Date enter_time) {
+        this.enter_time = enter_time;
+    }
+
+    public Date getLeave_time() {
+        return leave_time;
+    }
+
+    public void setLeave_time(Date leave_time) {
+        this.leave_time = leave_time;
+    }
+
+    public boolean wasLate() {
+        return enter_time.getTime() - DateUtil.setCurrentYMD(start).getTime() > (30 * 60 * 1000);
+    }
+
+    public boolean wasAway() {
+        var maxAwayTime = 30 * 60 * 1000;
+        var currentLeaveTime = DateUtil.setCurrentYMD(leave_time);
+        if (DateUtil.inMealTime(currentLeaveTime)) {
+            maxAwayTime *= 2;
+        }
+        return new Date().getTime() - currentLeaveTime.getTime() <= maxAwayTime;
+    }
 }
+

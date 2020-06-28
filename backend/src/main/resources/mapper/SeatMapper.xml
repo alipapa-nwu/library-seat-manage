@@ -3,11 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.alipapa.seat.dao.SeatDao">
-    <select id="getRemainingSeatsEachLevel" resultType="cn.alipapa.seat.bean.response.LevelCountResponse">
-        SELECT total.`level`              AS `level`,
-               total.count - in_use.count AS `count`
-        FROM seats_count_each_level total,
-             in_use_seats_each_level in_use
-        WHERE total.`level` = in_use.`level`
+    <select id="getInUseSeatsEachLevel" resultType="cn.alipapa.seat.bean.response.LevelCountResponse">
+        select *
+        from in_use_seats_each_level;
+    </select>
+
+    <select id="getTotalSeatsEachLevel" resultType="cn.alipapa.seat.bean.response.LevelCountResponse">
+        select *
+        from seats_count_each_level;
+    </select>
+
+    <select id="getSeatsOfTable" resultType="cn.alipapa.seat.bean.entity.Seat">
+        SELECT *
+        FROM seat
+        WHERE seat.table_id = #{tableId}
+        order by position
+    </select>
+    <select id="getSeat" resultType="cn.alipapa.seat.bean.entity.Seat">
+        select *
+        from seat
+        where id = #{id}
     </select>
 </mapper>

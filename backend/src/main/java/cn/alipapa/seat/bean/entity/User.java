@@ -5,12 +5,10 @@ import java.util.Date;
 public class User {
     private Integer id;
     private String serial;
-    private String name;
     private String openid;
     private String session_id;
     private String session_key;
     private Date punish_date;
-    private Date session_expire;
 
     public Integer getId() {
         return id;
@@ -26,14 +24,6 @@ public class User {
 
     public void setSerial(String serial) {
         this.serial = serial;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getOpenid() {
@@ -68,24 +58,15 @@ public class User {
         this.punish_date = punish_date;
     }
 
-    public Date getSession_expire() {
-        return session_expire;
-    }
-
-    public void setSession_expire(Date session_expire) {
-        this.session_expire = session_expire;
-    }
-
     @Override
     public String toString() {
         return "User{" +
-                "serial='" + serial + '\'' +
-                ", name='" + name + '\'' +
+                "id=" + id +
+                ", serial='" + serial + '\'' +
                 ", openid='" + openid + '\'' +
                 ", session_id='" + session_id + '\'' +
                 ", session_key='" + session_key + '\'' +
-                ", punish_until=" + punish_date +
-                ", session_expire=" + session_expire +
+                ", punish_date=" + punish_date +
                 '}';
     }
 }
