@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : pub-test
+ Source Server         : wuwang365
  Source Server Type    : MySQL
  Source Server Version : 50729
  Source Host           : pub-test.milolab.cn:32768
@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 27/06/2020 21:22:21
+ Date: 27/06/2020 14:28:23
 */
 
 SET NAMES utf8mb4;
