@@ -45,7 +45,7 @@ public class LoginService {
         if (result == 0) {
             throw new LoginException("登陆失败：数据库异常");
         }
-        return new LoginResponse(wechatResponse.getOpenid(), sessionId);
+        return new LoginResponse(user.getSerial(),wechatResponse.getOpenid(), sessionId);
     }
 
     private HashMap<String, String> loginRequestInit(LoginRequest loginRequest) {

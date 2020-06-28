@@ -5,10 +5,6 @@ public class LoginResponse {
     private String openId;
     private String sessionId;
 
-    public LoginResponse(String openId, String sessionId) {
-        this.openId = openId;
-        this.sessionId = sessionId;
-    }
 
     public LoginResponse(String serial, String openId, String sessionId) {
         this.serial = serial;
