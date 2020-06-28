@@ -1,0 +1,8 @@
+<!--pages/seat/seat.wxml-->
+<seat-info
+wx:for="{{seats}}"
+wx:key="index"
+seat="{{item}}"
+table="{{table}}"
+today="{{today}}"
+/>
