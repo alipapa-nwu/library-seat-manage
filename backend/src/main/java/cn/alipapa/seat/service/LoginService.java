@@ -35,10 +35,11 @@ public class LoginService {
             if (result == 0) {
                 throw new LoginException("登陆失败：数据库异常");
             }
+            user = userDao.getUserInformation(wechatResponse.getOpenid());
         }
         // 用openId加盐生成一个sessionId
         var sessionId = new SimpleHash("SHA-256", wechatResponse.getOpenid(),
-                Math.random(), 1024).toString();
+                String.valueOf(Math.random()), 1024).toString();
         // 更新session info
         var result = userDao.updateSessionInfo(wechatResponse.getOpenid(), sessionId,
                 wechatResponse.getSession_key());
