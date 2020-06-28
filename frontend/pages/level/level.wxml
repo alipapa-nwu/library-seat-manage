@@ -1,2 +1,19 @@
 <!--pages/level/level.wxml-->
-<text>pages/level/level.wxml level:{{level}}</text>
+<button
+  class="date-button"
+  type="primary"
+  bind:tap="switchDate">
+  {{today?"今天":"明天"}}
+</button>
+
+<scroll-view scroll-x scroll-y class="scroll">
+  <view
+  class="grid"
+  style="grid-template-columns: repeat({{gridLimit.colMax}}, 118rpx);grid-template-rows: repeat({{gridLimit.rowMax}}, 176rpx);">
+    <table-info
+    wx:for="{{levelData}}"
+    wx:key="id"
+    style="grid-column: {{item.table.column+1}}; grid-row: {{item.table.row+1}};"
+    table-data="{{item}}"/>
+  </view>
+</scroll-view>

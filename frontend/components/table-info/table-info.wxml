@@ -1,7 +1,7 @@
 <!--components/table-info/table-info.wxml-->
-<view class="table-info">
+<view class="table-info" bind:tap="onTap">
   <view class="label">
-    <text>B12</text>
+    <text>{{label}}</text>
   </view>
 
   <view
