@@ -57,4 +57,11 @@
             (user_id, seat_id, start, end, reservation_date)
             value (#{userId}, #{seatId}, #{start}, #{end}, #{date})
     </insert>
+
+    <select id="getUseridBySerial" resultType="cn.alipapa.seat.bean.entity.User">
+        select *
+        from user
+        where serial= #{serial}
+        limit 1
+    </select>
 </mapper>

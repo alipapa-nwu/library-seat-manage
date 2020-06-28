@@ -14,11 +14,11 @@ public class ExternalController {
 
     @PostMapping(path = "/external/user_in")
     public Object userIn(@RequestBody UserInOutRequest userInOutRequest) {
-        return reservationService.userIn(userInOutRequest.getUser_id());
+        return reservationService.userIn(userInOutRequest.getSerial());
     }
 
     @PostMapping("/external/user_out")
     public Object userOutRecord(@RequestBody UserInOutRequest userInOutRequest) {
-        return reservationService.userOutRecord(userInOutRequest.getUser_id());
+        return reservationService.userOutRecord(userInOutRequest.getSerial());
     }
 }
