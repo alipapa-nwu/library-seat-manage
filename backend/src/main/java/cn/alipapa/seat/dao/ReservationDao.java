@@ -2,6 +2,7 @@ package cn.alipapa.seat.dao;
 
 import cn.alipapa.seat.bean.entity.Reservation;
 import cn.alipapa.seat.bean.entity.Serial;
+import cn.alipapa.seat.bean.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -23,5 +24,5 @@ public interface ReservationDao {
 
     int insertAReservation(int userId, int seatId, Date start, Date end, Date date);
 
-    Serial getUseridBySerial(String serial);
+    User getUseridBySerial(String serial);
 }

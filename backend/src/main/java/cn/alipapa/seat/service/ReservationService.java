@@ -28,8 +28,7 @@ public class ReservationService {
         if (userIdEntity == null) {
             throw new CustomException("用户进馆失败：该用户未在本系统注册");
         }
-        int userId=userIdEntity.getId();
-        var reservation = reservationDao.getProceedingReservationOfUser(userId);
+        var reservation = reservationDao.getProceedingReservationOfUser(userIdEntity.getId());
         if (reservation == null) {
             // 没有找到预约
             throw new CustomException("用户进馆失败：不在预约时段内");
@@ -55,8 +54,7 @@ public class ReservationService {
         if (userIdEntity == null) {
             throw new CustomException("用户进馆失败：该用户未在本系统注册");
         }
-        int userId=userIdEntity.getId();
-        var reservation = reservationDao.getProceedingReservationOfUser(userId);
+        var reservation = reservationDao.getProceedingReservationOfUser(userIdEntity.getId());
         if (reservation == null) {
             throw new CustomException("用户离馆失败：不在预约时段内");
         } else if (reservation.getEnter_time() != null && reservation.getLeave_time() == null) {

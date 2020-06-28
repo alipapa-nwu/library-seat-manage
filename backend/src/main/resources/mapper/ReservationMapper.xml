@@ -58,9 +58,10 @@
             value (#{userId}, #{seatId}, #{start}, #{end}, #{date})
     </insert>
 
-    <select id="getUseridBySerial" resultType="cn.alipapa.seat.bean.entity.Serial">
-        select id
+    <select id="getUseridBySerial" resultType="cn.alipapa.seat.bean.entity.User">
+        select *
         from user
         where serial= #{serial}
+        limit 1
     </select>
 </mapper>
