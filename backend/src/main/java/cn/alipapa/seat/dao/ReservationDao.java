@@ -1,8 +1,8 @@
 package cn.alipapa.seat.dao;
 
 import cn.alipapa.seat.bean.entity.Reservation;
-import cn.alipapa.seat.bean.entity.Serial;
 import cn.alipapa.seat.bean.entity.User;
+import cn.alipapa.seat.bean.response.ReservationResponse;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -18,7 +18,7 @@ public interface ReservationDao {
 
     Reservation getProceedingReservationOfUser(int userId);
 
-    List<Reservation> getReservations(int userId, int limit, int offset);
+    List<ReservationResponse> getReservations(int userId, int limit, int offset);
 
     Reservation getLatestReservationOfUser(Date date, int userId);
 

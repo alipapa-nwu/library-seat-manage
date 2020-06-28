@@ -33,13 +33,24 @@
         limit 1
     </select>
 
-    <select id="getReservations" resultType="cn.alipapa.seat.bean.entity.Reservation">
-        select *
-        from reservation r
-        where r.user_id = #{userId}
-        order by r.reservation_date desc
-        limit #{limit}
-            offset #{offset}
+    <select id="getReservations" resultType="cn.alipapa.seat.bean.response.ReservationResponse">
+        SELECT reservation.*,
+               `table`.`level`  AS `level`,
+               `table`.`column` AS `column`,
+               `table`.`row`    AS `row`,
+               seat.position    AS position
+        FROM reservation
+                 INNER JOIN
+             seat
+             ON
+                 reservation.seat_id = seat.id
+                 INNER JOIN
+             `table`
+             ON
+                 seat.table_id = `table`.id
+        WHERE reservation.user_id = #{userId}
+        LIMIT #{limit}
+            OFFSET #{offset}
     </select>
 
     <select id="getLatestReservationOfUser" resultType="cn.alipapa.seat.bean.entity.Reservation">

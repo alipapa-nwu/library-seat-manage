@@ -1,9 +1,9 @@
 package cn.alipapa.seat.service;
 
-import cn.alipapa.seat.bean.entity.Reservation;
 import cn.alipapa.seat.bean.entity.User;
 import cn.alipapa.seat.bean.request.BindRequest;
 import cn.alipapa.seat.bean.response.BinaryStatusResponse;
+import cn.alipapa.seat.bean.response.ReservationResponse;
 import cn.alipapa.seat.dao.ReservationDao;
 import cn.alipapa.seat.dao.SerialDao;
 import cn.alipapa.seat.exception.AccessDeniedException;
@@ -37,7 +37,7 @@ public class UserService {
         return new BinaryStatusResponse(true);
     }
 
-    public List<Reservation> getReservations(User user, int page) {
+    public List<ReservationResponse> getReservations(User user, int page) {
         return reservationDao.getReservations(user.getId(), 10, page * 10);
     }
 }
