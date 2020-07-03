@@ -22,9 +22,10 @@ Page({
     if (!app.globalData.userInfo) {
       wx.showToast({
         title: '请登录',
+        image: '/assets/error.png'
       })
       wx.switchTab({
-        url: '/pages/mine/mine?loginNow=true',
+        url: '/pages/mine/mine',
       })
     } else {
       const {
@@ -58,8 +59,9 @@ Page({
             case 401:
             case 403:
               wx.switchTab({
-                url: '/pages/mine/mine?loginNow=true',
+                url: '/pages/mine/mine',
               })
+              app.globalData.userInfo = null;
             default:
               wx.showToast({
                 title: '服务器异常',
