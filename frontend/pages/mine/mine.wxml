@@ -1,12 +1,22 @@
 <!--pages/mine/mine.wxml-->
 <view>
-	<self-information name="{{name}}" serial="{{serial}}" avatar-url="{{avatarUrl}}"/>
-	<status-button
+	<self-information name="{{nickName}}" serial="{{serial}}" avatar-url="{{avatarUrl}}"/>
+	<view 
+	wx:if="{{loggedIn}}">
+		<status-button
 		wx:for="{{reservations}}"
-		wx:key="index"
+		wx:key="id"
 		status="{{item.status}}"
 		description="{{item.description}}"
 		bind:tap="onTap"
 		data-description="{{item.description}}"
-		data-status="{{item.status}}"/>
+		data-status="{{item.status}}" />
+
+		<view class="empty" wx:if="{{reservations.length==0}}">
+			<text>没有预约</text>
+		</view>
+	</view>
+	<view wx:else>
+		<button type="primary" open-type="getUserInfo" bind:getuserinfo="getUserInfo">登录</button>
+	</view>
 </view>

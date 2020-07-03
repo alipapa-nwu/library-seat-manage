@@ -1,1 +1,6 @@
 /* pages/mine/mine.wxss */
+.empty{
+  margin-top: 100rpx;
+  text-align: center;
+  color: #d4d4d4;
+}
