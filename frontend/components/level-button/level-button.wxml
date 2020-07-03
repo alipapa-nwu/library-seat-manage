@@ -1,0 +1,5 @@
+<!--components/level-button/level-button.wxml-->
+<view class="level-button {{color}}" data-inner="inner" bindtap="onTap">
+  <text class="title">第{{levelTitle}}层</text>
+  <text class="subtitle">剩余{{remain}}座位</text>
+</view>

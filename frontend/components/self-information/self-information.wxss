@@ -1,0 +1,31 @@
+/* components/component-tag-name.wxss */
+.self-info{
+  height: 176rpx;
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+.avatar{
+  margin:24rpx 0 24rpx 30rpx;
+  width: 128rpx;
+	height: 128rpx;
+}
+
+.name{
+  font-size: 36rpx;
+  font-weight: bold;
+  margin: 33rpx 0 0 26rpx;
+  display: block;
+}
+
+.serial{
+  font-size: 26rpx;
+  margin: 13rpx 0 0 26rpx;
+  color: #9b9b9b;
+  display: block;
+}

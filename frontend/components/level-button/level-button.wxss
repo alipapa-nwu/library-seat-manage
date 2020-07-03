@@ -1,0 +1,30 @@
+/* components/level-button/level-button.wxss */
+
+.level-button{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: 30rpx;
+  margin-bottom: 0;
+  border-radius: 14rpx;
+  padding: 14rpx 25rpx;
+}
+
+.title{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.subtitle{
+  font-size: 28rpx;
+}
+
+.green{
+  background-color: #09bb07;
+}
+.yellow{
+  background-color: #ffbe00;
+}
+.red{
+  background-color: #f76260;
+}

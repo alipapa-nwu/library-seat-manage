@@ -1,0 +1,12 @@
+<!-- 组件模板 -->
+<view class="self-info">
+
+	<image src="{{avatarUrl}}" class="avatar"></image>
+
+	<view class>
+		<text class="name">{{name}}</text>
+		<view class="spacer"></view>
+		<text class="serial">{{serial}}</text>
+	</view>
+
+</view>

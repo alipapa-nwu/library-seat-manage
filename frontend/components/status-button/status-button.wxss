@@ -1,0 +1,52 @@
+/* components/component-tag-name.wxss */
+.status-button{
+	border-radius: 14rpx;
+  border: solid 5rpx;
+  padding: 25rpx 32rpx 25rpx 32rpx;
+  margin: 0 30rpx 30rpx 30rpx;
+  display: flex;
+
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 40rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.subtitle{
+  font-size: 27rpx;
+  display: block;
+}
+
+.icon{
+  width: 117rpx;
+  height: 117rpx;
+}
+
+.green{
+  border-color: #09bb07;
+  color: #09bb07;
+}
+
+.blue{
+  border-color: #10aeff;
+  color: #10aeff;
+}
+
+.red{
+  border-color: #f76260;
+  color: #f76260;
+}
+
+
+

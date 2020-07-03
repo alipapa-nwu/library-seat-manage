@@ -1,0 +1,9 @@
+<!--components/time-picker/time-picker.wxml-->
+<picker mode="time" start="08:00" end="22:00" model:value="{{value}}">
+	<view class="time-picker">
+		<text class="block">{{title}}</text>
+		<view class="spacer"></view>
+		<text class="subtitle block">{{value}}</text>
+		<image class="indicator" src="/assets/arrow_right.png"></image>
+	</view>
+</picker>

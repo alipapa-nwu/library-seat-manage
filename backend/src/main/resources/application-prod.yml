@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: lib-seat-back
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/seat?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: seat
+    password: alipapa
+
+mybatis:
+  mapper-locations: "classpath:mapper/*.xml"
+  type-aliases-package: cn.alipapa.seat.bean
+
+logging:
+  level:
+    cn:
+      alipapa:
+        seat: info

@@ -1,0 +1,52 @@
+/* pages/reservation/reservation.wxss */
+.container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 126vw;
+  height: 43vh;
+  background-color: #10aeff;
+  transform: rotate(90deg);
+  border-radius: 14rpx;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.title{
+  display: block;
+  font-size: 72rpx;
+  top: 25rpx;
+  left: 45rpx;
+}
+
+.subtitle{
+  display: block;
+  text-align: center;
+  font-size: 46rpx;
+}
+
+.hint{
+  right: 81rpx;
+  bottom: 45rpx;
+  font-size: 46rpx;
+}
+
+.hint-img{
+  width: 99rpx;
+  height: 71rpx;
+  margin-left: 31rpx;
+}

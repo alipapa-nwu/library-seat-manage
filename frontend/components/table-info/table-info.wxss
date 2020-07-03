@@ -1,0 +1,40 @@
+/* components/table-info/table-info.wxss */
+.table-info{
+  width: 118rpx;
+  height: 176rpx;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.label{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 47rpx;
+	height: 47rpx;
+	background-color: white;
+  border: solid 4rpx #10aeff;
+  border-radius: 100rpx;
+  font-size: 20rpx;
+  color: #10aeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.seat{
+  border-radius: 11rpx;
+  border: solid 4rpx grey;
+  background-color: white;
+  overflow: hidden;
+}
+
+.cover{
+  width: 100%;
+}

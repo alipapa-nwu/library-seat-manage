@@ -1,0 +1,5 @@
+FROM store/oracle/jdk:11
+
+COPY target/lib_seat-1.0.0-SNAPSHOT.jar /app/seat.jar
+
+CMD java -jar /app/seat.jar

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "table-info": "/components/table-info/table-info"
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.alipapa.seat.dao.SerialDao">
+    <select id="getPassword" resultType="String">
+        SELECT serial.password
+        FROM serial
+        WHERE serial = #{serial}
+    </select>
+    <update id="bindSerial">
+        update user
+        set serial = #{serial}
+        where openid = #{openid}
+        limit 1
+    </update>
+</mapper>
