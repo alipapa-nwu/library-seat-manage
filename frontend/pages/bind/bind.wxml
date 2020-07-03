@@ -4,9 +4,24 @@
 
 <view class="form">
   <view class="divider"></view>
-  <text-field label="学号" placeholder="请输入学号" data-field="serial" bind:change="onChange"></text-field>
+
+  <text-field
+  label="学号"
+  placeholder="请输入学号"
+  data-field="serial"
+  model:value="{{serial}}"
+  type="number"></text-field>
+
   <view class="divider"></view>
-  <text-field label="身份证后六位" placeholder="请输入身份证号的后六位" data-field="password" bind:change="onChange"></text-field>
+
+  <text-field
+  label="身份证后六位"
+  placeholder="请输入身份证号的后六位"
+  data-field="password"
+  password
+  model:value="{{password}}"
+  type="idcard"></text-field>
+
   <view class="divider"></view>
 </view>
 
