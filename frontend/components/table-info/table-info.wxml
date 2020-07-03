@@ -17,6 +17,7 @@
         wx:for-index="coverIndex"
         wx:key="coverIndex"
         style="background-color: {{cover.color}};height: {{cover.height}}%;"
-        class="cover"/>
+        class="cover">
+      </view>
   </view>
 </view>

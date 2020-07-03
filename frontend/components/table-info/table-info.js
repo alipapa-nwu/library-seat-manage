@@ -26,10 +26,10 @@ Component({
         } else {
           seat.borderColor = "#ffbe00";
         }
-        const start = new Date("1970-1-1 08:00:00");
+        const start = new Date("1970/1/1 08:00:00");
         const timelines = seatData.reservations.reduce((arr, reservation) => {
-          arr.push(new Date(reservation.start) - start);
-          arr.push(new Date(reservation.end) - start);
+          arr.push(new Date(reservation.start.replace(/-/g, '/')) - start);
+          arr.push(new Date(reservation.end.replace(/-/g, '/')) - start);
           return arr;
         }, [])
         timelines.unshift(0);
@@ -52,7 +52,7 @@ Component({
     }
   },
   methods: {
-    onTap(){
+    onTap() {
       app.globalData.currentTableData = this.properties.tableData;
       wx.navigateTo({
         url: '/pages/seat/seat',
