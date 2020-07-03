@@ -3,6 +3,7 @@ package cn.alipapa.seat.controller;
 import cn.alipapa.seat.bean.request.LoginRequest;
 import cn.alipapa.seat.service.LoginService;
 import cn.alipapa.seat.service.SeatService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class PublicController {
     }
 
     @PostMapping("/public/login")
-    public Object userLogin(@RequestBody LoginRequest loginRequest){
+    public Object userLogin(@RequestBody LoginRequest loginRequest) throws JsonProcessingException {
         return loginService.login(loginRequest);
     }
   

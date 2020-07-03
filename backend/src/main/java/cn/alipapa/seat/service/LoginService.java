@@ -6,6 +6,7 @@ import cn.alipapa.seat.bean.response.LoginResponse;
 import cn.alipapa.seat.bean.response.WechatLoginResponse;
 import cn.alipapa.seat.dao.UserDao;
 import cn.alipapa.seat.exception.LoginException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,11 +23,15 @@ public class LoginService {
     String appID;
     @Value("${appsecret}")
     String appsecret;
+
+    @Autowired
+    HttpUtil httpUtil;
+
     private static final String URL = "https://api.weixin.qq.com/sns/jscode2session";
 
-    public LoginResponse login(LoginRequest loginRequest) {
+    public LoginResponse login(LoginRequest loginRequest) throws JsonProcessingException {
         // 用jscode换openid
-        var wechatResponse = httpRequest(loginRequestInit(loginRequest));
+        var wechatResponse = httpUtil.wechatLogin(loginRequestInit(loginRequest));
         // 用openid找user
         var user = userDao.getUserInformation(wechatResponse.getOpenid());
         // 没找到，插入一个
@@ -51,11 +56,11 @@ public class LoginService {
 
     private HashMap<String, String> loginRequestInit(LoginRequest loginRequest) {
         HashMap<String, String> paraMap = new HashMap<>();
-        HashMap<String, String> requestResult = new HashMap<>();
         paraMap.put("appid", appID);
         paraMap.put("secret", appsecret);
         paraMap.put("js_code", loginRequest.getCode());
         paraMap.put("grant_type", "authorization_code");
+        System.out.println(paraMap);
         return paraMap;
     }//hashMap打包appid等数据
 
@@ -66,6 +71,10 @@ public class LoginService {
         wechatLoginResponse = request.getForObject(URL, WechatLoginResponse.class, map);
         if (wechatLoginResponse == null) {
             throw new LoginException("登陆失败：无法连接至微信服务器");
+        }
+        if(wechatLoginResponse.getOpenid()==null||wechatLoginResponse.getSession_key()==null){
+            System.out.println(wechatLoginResponse);
+            throw new LoginException("登陆失败：微信服务器返回结果异常");
         }
         switch (wechatLoginResponse.getErrcode()) {
             case 1:
