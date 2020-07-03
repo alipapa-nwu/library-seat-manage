@@ -19,8 +19,8 @@ Component({
       if (!today) date.setDate(date.getDate() + 1);
       date = date.toISOString().substr(0, 10);
       const period = seat.reservations.map(reservation => ({
-        start: reservation.start.substr(12, 15),
-        end: reservation.end.substr(12, 15)
+        start: reservation.start.substr(11, 5),
+        end: reservation.end.substr(11, 5)
       }))
       const noReservation = period.length == 0;
       this.setData({
