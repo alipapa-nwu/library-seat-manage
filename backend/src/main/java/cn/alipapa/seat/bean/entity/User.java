@@ -1,8 +1,14 @@
 package cn.alipapa.seat.bean.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class User {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String serial;
     private String openid;

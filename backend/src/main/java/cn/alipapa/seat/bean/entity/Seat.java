@@ -1,6 +1,13 @@
 package cn.alipapa.seat.bean.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Seat {
+    @Id
+    @GeneratedValue
     private Integer id;
     private Integer table_id;
     private Integer position;

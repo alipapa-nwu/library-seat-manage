@@ -1,6 +1,13 @@
 package cn.alipapa.seat.bean.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Serial {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String serial;
     private String password;
